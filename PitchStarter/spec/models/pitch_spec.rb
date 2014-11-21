@@ -7,7 +7,8 @@ describe Pitch do
 	end
 
 	describe "is valid with title and url" do
-		it {should validate_presence_of (:title, :url)}
+		it {should validate_presence_of (:title)}
+		it {should validate_presence_of (:url)}
 	end
 
 	it "returns the title as a string" do
