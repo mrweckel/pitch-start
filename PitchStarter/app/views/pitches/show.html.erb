@@ -1,9 +1,26 @@
+<br>
+<center><h2><%= @pitch.title %></h2>
+  <div class="wrapper clearfix">
+    <div id="video">
+      <iframe width="512" height="385" src=<%= @pitch.url %> frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div id="backing">
+      <div class="progress">
+        <div class="progress-bar" style="width: 60%;"></div>
+      </div>
+      <ul>
+        <p>6 out of 10 Votes | 10 days left</p>
+      </ul>
+      <div id="progress_bg" class="small">
+        <div id="progress" class style="width: 0.0%;"></div>
+      </div>
+      <a href="/preorder/checkout" class="blue_button reserve">Cast Vote</a>
 
-<%= @pitch.title %>
-<%= @pitch.url %>
-
-<%= link_to 'Create Comment', new_comment_path(pitch_id: @pitch.id) %>
+      <%= link_to 'Create Comment', new_comment_path(pitch_id: @pitch.id) %>
 <%= link_to 'All Comments', comments_path(pitch_id: @pitch.id) %>
 <%= link_to 'Edit', edit_pitch_path %>
 <%= link_to 'Delete', pitch_path, method: :delete %>
+    </div>
+  </div>
+</center>
 
