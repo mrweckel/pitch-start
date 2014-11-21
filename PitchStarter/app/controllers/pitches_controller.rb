@@ -14,7 +14,7 @@ class PitchesController < ApplicationController
   def create
     @pitch = Pitch.new(pitch_params)
     if @pitch.save
-      redirect_to root_url
+      redirect_to pitch_path(@pitch)
     else
       render :new
     end
