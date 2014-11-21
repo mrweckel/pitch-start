@@ -18,9 +18,7 @@ describe PitchesController do
         expect(response).to render_template :index
       end
     end
-
-   end
-
+  end
 
   describe 'POST #create' do
     context "with valid attributes" do
@@ -32,5 +30,32 @@ describe PitchesController do
     end
   end
 
+
+  describe'PATCH#update'do 
+    before :each do
+      @pitch = FactoryGirl.create(:pitch)
+    end
+
+    context "valid attributes" do
+      it "locates the requested @pitch" do
+        patch :update, id: @pitch, pitch: attributes_for(:pitch)
+        expect(assigns(:pitch)).to eq(@pitch) 
+      end
+
+      it "changes @pitch's attributes" do 
+        patch :update, id: @pitch, pitch: attributes_for(:pitch,
+        title: 'title',
+        url: 'www.youtube.com')
+        @pitch.reload
+        expect(@pitch.title).to eq('title')
+        expect(@pitch.url).to eq('www.youtube.com')
+      end
+
+      it "redirects to the updated pitch" do
+        patch :update, id: @pitch, pitch: attributes_for(:pitch) 
+        expect(response).to redirect_to pitches_path
+      end 
+    end
+  end
 
 end
