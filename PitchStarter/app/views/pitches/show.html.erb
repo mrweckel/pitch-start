@@ -9,12 +9,13 @@
         <div class="progress-bar" style="width: 60%;"></div>
       </div>
       <ul>
-        <p>6 out of 10 Votes | 10 days left</p>
+        <p>Vote Count <%= @votes %> | 10 days left</p>
       </ul>
       <div id="progress_bg" class="small">
         <div id="progress" class style="width: 0.0%;"></div>
       </div>
       <a href="/preorder/checkout" class="blue_button reserve">Cast Vote</a>
+
 
       <%= link_to 'Create Comment', new_comment_path(pitch_id: @pitch.id) %>
 <%= link_to 'All Comments', comments_path(pitch_id: @pitch.id) %>
@@ -23,4 +24,5 @@
     </div>
   </div>
 </center>
+
 
