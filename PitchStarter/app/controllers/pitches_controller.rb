@@ -5,6 +5,7 @@ class PitchesController < ApplicationController
 
   def show
     @pitch = Pitch.find(params[:id])
+    @votes = @pitch.votes.count
   end
 
   def new

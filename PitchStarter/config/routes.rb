@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :users, :pitches, :comments
 
+  post 'votes' => 'votes#create'
+
 
   root to: 'pitches#index'
   # The priority is based upon order of creation: first created -> highest priority.
