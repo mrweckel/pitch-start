@@ -1,5 +1,10 @@
+
 <%= @pitch.title %>
 <%= @pitch.url %>
-<br>
+
+
+  <%= link_to 'All Comments', comments_path(pitch_id: @pitch.id)%>
+
   <%= link_to 'Edit', edit_pitch_path %>
   <%= link_to 'Delete', pitch_path, method: :delete %>
+

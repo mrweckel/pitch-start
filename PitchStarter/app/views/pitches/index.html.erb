@@ -6,8 +6,7 @@
   <%= link_to pitch.title, pitch %>
   <%= link_to 'Edit', [:edit, pitch] %>
   <%= link_to 'Delete', pitch, method: :delete%>
+  <%= link_to 'Comments', comments_path(pitch_id: pitch.id)%>
   <%= pitch.url%>
   <br>
 <% end %>
-
-

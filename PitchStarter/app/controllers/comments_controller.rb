@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   def index
-    @comments = Comment.all.order(created_at: :desc)
+    @pitch = Pitch.find(params[:pitch_id])
+    @comments = @pitch.comments
   end
 
   def show
