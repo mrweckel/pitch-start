@@ -9,13 +9,16 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @comment = Comment.new
+
+    @pitch = Pitch.find(params[:pitch_id])
+    @comment = @pitch.comments.new
   end
 
   def create
-    @comment = Comment.new(comment_params)
+    @pitch = Pitch.find(comment_params[:pitch_id])
+    @comment = @pitch.comments.new(comment_params)
     if @comment.save
-      redirect_to comments: 'index'
+      redirect_to pitch_path(@pitch)
     else
       render :new
     end
@@ -40,7 +43,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit([:content])
+    params.require(:comment).permit([:content, :pitch_id ])
   end
 
 end

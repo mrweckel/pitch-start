@@ -1,6 +1,6 @@
 <%= form_for @comment do |f| %>
 <%= f.label :content %>
 <%= f.text_field :content %>
-
+<%= f.hidden_field :pitch_id, value: @pitch.id%>
 <%= f.submit %>
 <% end %>
