@@ -27,7 +27,7 @@
 
         <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
 
-<iframe width="230" height="129" src="//www.youtube.com/embed/rfh4Mhp-a6U?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
 
 
             </div>
