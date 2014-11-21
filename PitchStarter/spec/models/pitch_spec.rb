@@ -6,9 +6,16 @@ describe Pitch do
 		@pitch = FactoryGirl.build(:pitch)
 	end
 
-	it "is valid with title and url" do
+	describe "is valid with title and url" do
+		it {should validate_presence_of (:title, :url)}
 	end
 
-	it "is invalid without a title"
+	it "returns the title as a string" do
+		@pitch.title.is_a? String
+	end
+
+	it "returns the url as a string" do
+		@pitch.url.is_a? String
+	end
 
 end
