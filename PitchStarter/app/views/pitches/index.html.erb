@@ -4,7 +4,7 @@
 <h3>Most recent 3 pitches</h3>
 <% @pitches.each do |pitch| %>
   <%= link_to pitch.title, pitch %>
-  <%= link_to 'Edit Pitch', [:edit, pitch] %>
+  <%= link_to 'Edit', [:edit, pitch] %>
   <%= link_to 'Delete', pitch, method: :delete%>
   <%= pitch.url%>
   <br>

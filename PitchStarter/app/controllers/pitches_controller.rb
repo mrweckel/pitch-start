@@ -22,7 +22,7 @@ class PitchesController < ApplicationController
 
   def destroy
     @pitch = Pitch.find(params[:id]).destroy
-    redirect_to pitches: 'index'
+    redirect_to root_path
   end
 
   def edit

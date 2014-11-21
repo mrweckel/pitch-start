@@ -1,0 +1,8 @@
+<h3>All Comments</h3>
+
+<% @comments.each do |comment| %>
+  <%= comment.content %>
+  <%= link_to 'Edit', [:edit, comment] %>
+  <%= link_to 'Delete', comment, method: :delete%>
+  <br>
+<% end %>
