@@ -14,7 +14,7 @@ class PitchesController < ApplicationController
   def create
     @pitch = Pitch.new(pitch_params)
     if @pitch.save
-      redirect_to pitches: 'index'
+      redirect_to root_url
     else
       render :new
     end
@@ -22,7 +22,7 @@ class PitchesController < ApplicationController
 
   def destroy
     @pitch = Pitch.find(params[:id]).destroy
-    redirect_to root_path
+    redirect_to root_url
   end
 
   def edit
