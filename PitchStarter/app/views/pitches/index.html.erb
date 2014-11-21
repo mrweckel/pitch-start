@@ -1,6 +1,6 @@
-<h1>PitchStarter</h1>
+<%= render "/intro" %>
 
-
+<%= render "/top_pitches" %>
 <h3>Most recent 3 pitches</h3>
 <% @pitches.each do |pitch| %>
   <%= link_to pitch.title, pitch %>
@@ -9,3 +9,5 @@
   <%= pitch.url%>
   <br>
 <% end %>
+
+
