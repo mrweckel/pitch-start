@@ -1,13 +1,36 @@
 require 'rails_helper'
 
-describe PitchController do
+describe PitchesController do
 
   describe 'GET #index' do
-      xit "renders index template" do
+    context 'with params[:pitch]' do
+      it "renders at least 3 pitches on the index page" do
+        pitches = []
+        3.times do
+          pitches << FactoryGirl.create(:pitch)
+        end
+        get :index
+        expect(assigns(:pitches)).to match_array(pitches)
+      end
+
+      it "renders index template" do
         get :index
         expect(response).to render_template :index
       end
+    end
+
    end
+
+
+  describe 'POST #create' do
+    context "with valid attributes" do
+      it "saves the new pitch in the database" do
+        expect{
+          post :create, pitch: attributes_for(:pitch)
+        }.to change(Pitch, :count).by(1)
+      end
+    end
+  end
 
 
 end
