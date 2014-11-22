@@ -31,6 +31,7 @@ group :development, :test do
 	gem "factory_girl_rails", "~> 4.4.1"
 	gem "capybara", "~> 2.4.3"
 	gem 'shoulda-matchers', require: false
+	gem 'simplecov', :require => false, :group => :test
 end
 
 group :test do
