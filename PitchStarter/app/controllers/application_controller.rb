@@ -6,6 +6,12 @@ class ApplicationController < ActionController::Base
   helper_method :yt_client
 
   def yt_client
-    @yt_client ||= YouTubeIt::Client.new(:username => YouTubeITConfig.username , :password => YouTubeITConfig.password , :dev_key => YouTubeITConfig.dev_key)
+    @yt_client ||= YouTubeIt::OAuth2Client.new(
+      client_access_token: "access_token",
+      client_refresh_token: "refresh_token",
+      client_id: "client_id",
+      client_secret: "client_secret",
+      dev_key: "dev_key",
+      expires_at: "expiration time")
   end
 end
