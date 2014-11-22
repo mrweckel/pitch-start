@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   post 'votes' => 'votes#create'
 
+  get 'logout' => 'sessions#destroy'
+  get 'login' => 'sessions#login'
+  post 'login' => 'session#create'
 
   root to: 'pitches#index'
   # The priority is based upon order of creation: first created -> highest priority.
