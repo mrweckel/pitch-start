@@ -30,8 +30,8 @@ gem 'spring',        group: :development
 gem 'youtube_it'
 
 #Google API gems
-gem 'google/api_client'
-gem 'google/api_client/client_secrets'
+gem 'google-api-client', '>= 0.6.2', :require => 'google/api_client'
+gem 'signet', '>=0.4.5'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.1.0'

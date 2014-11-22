@@ -11,6 +11,8 @@ require "sprockets/railtie"
 
 #Needed for Google OAuth
 require 'base64'
+require 'google/api_client'
+require 'google/api_client/client_secrets'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -37,7 +39,7 @@ module PitchStarter
         :client_id => $credentials.client_id,
         :client_secret => $credentials.client_secret,
         :redirect_uri => $credentials.redirect_uris.first,
-        :scope => PLUS_LOGIN_SCOPE)
+        :scope => ['https://www.googleapis.com/auth/plus.me'])
 
     $client = Google::APIClient.new
   end
