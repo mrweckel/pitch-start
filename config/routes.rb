@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   post 'votes' => 'votes#create'
 
+  resources :users do
+    post "oauth"
+  end
 
   root to: 'pitches#index'
   # The priority is based upon order of creation: first created -> highest priority.

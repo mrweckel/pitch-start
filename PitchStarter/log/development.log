@@ -1,0 +1,129 @@
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20141120221607)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141120221607"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreatePitches (20141120221616)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (3.0ms)[0m  [1mCREATE TABLE "pitches" ("id" serial primary key, "title" character varying(255), "url" character varying(255), "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141120221616"]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateComments (20141120221625)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (3.4ms)[0m  [1mCREATE TABLE "comments" ("id" serial primary key, "content" text, "user_id" integer, "pitch_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141120221625"]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateVotes (20141120221629)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "pitch_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141120221629"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-22 14:42:55 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PitchesController#index as HTML
+  Rendered _intro.html.erb (0.5ms)
+  [1m[35mPitch Load (1.6ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 1
+  Rendered _top_pitches.html.erb (9.7ms)
+  Rendered pitches/index.html.erb within layouts/application (15.7ms)
+Completed 500 Internal Server Error in 41ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    25:             <div class="inner">
+    26: 
+    27: 
+    28:         <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
+    29: 
+    30: <iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
+    31: 
+  app/views/_top_pitches.html.erb:28:in `_app_views__top_pitches_html_erb__1656880585179461473_70121465872460'
+  app/views/pitches/index.html.erb:3:in `_app_views_pitches_index_html_erb___2914878062100595761_70121495354760'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.5ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (16.2ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-22 14:43:13 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PitchesController#index as HTML
+  Rendered _intro.html.erb (0.3ms)
+  [1m[35mPitch Load (0.7ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 1
+  Rendered _top_pitches.html.erb (4.5ms)
+  Rendered pitches/index.html.erb within layouts/application (9.3ms)
+Completed 500 Internal Server Error in 67ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    25:             <div class="inner">
+    26: 
+    27: 
+    28:         <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
+    29: 
+    30: <iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
+    31: 
+  app/views/_top_pitches.html.erb:28:in `_app_views__top_pitches_html_erb___3877558688869844061_70230541578400'
+  app/views/pitches/index.html.erb:3:in `_app_views_pitches_index_html_erb__4378615606312361697_70230540627660'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-22 14:43:16 -0500
+Processing by PitchesController#index as HTML
+  Rendered _intro.html.erb (0.1ms)
+  [1m[36mPitch Load (0.4ms)[0m  [1mSELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 1[0m
+  Rendered _top_pitches.html.erb (2.1ms)
+  Rendered pitches/index.html.erb within layouts/application (3.7ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    25:             <div class="inner">
+    26: 
+    27: 
+    28:         <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
+    29: 
+    30: <iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
+    31: 
+  app/views/_top_pitches.html.erb:28:in `_app_views__top_pitches_html_erb___3877558688869844061_70230541578400'
+  app/views/pitches/index.html.erb:3:in `_app_views_pitches_index_html_erb__4378615606312361697_70230540627660'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (11.4ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-22 14:44:54 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PitchesController#index as HTML
+  Rendered _intro.html.erb (0.3ms)
+  [1m[35mPitch Load (0.7ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 1
+  Rendered _top_pitches.html.erb (4.5ms)
+  Rendered pitches/index.html.erb within layouts/application (8.8ms)
+Completed 500 Internal Server Error in 30ms
+
+ActionView::Template::Error (undefined method `title' for nil:NilClass):
+    25:             <div class="inner">
+    26: 
+    27: 
+    28:         <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
+    29: 
+    30: <iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
+    31: 
+  app/views/_top_pitches.html.erb:28:in `_app_views__top_pitches_html_erb__1986085166818623658_70191355516980'
+  app/views/pitches/index.html.erb:3:in `_app_views_pitches_index_html_erb___1072777625029433922_70191355334760'
+
+
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /Users/apprentice/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.1.7/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (12.3ms)
