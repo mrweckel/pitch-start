@@ -106,7 +106,7 @@ class UsersController < ApplicationController
             :maxResults => 50
           }
         )
-      end
+
     end
 
   private
