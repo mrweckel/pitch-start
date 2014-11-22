@@ -29,6 +29,10 @@ gem 'spring',        group: :development
 #Youtube gem
 gem 'youtube_it'
 
+#Google API gems
+gem 'google/api_client'
+gem 'google/api_client/client_secrets'
+
 group :development, :test do
 	gem 'rspec-rails', '~> 3.1.0'
 	gem "factory_girl_rails", "~> 4.4.1"
