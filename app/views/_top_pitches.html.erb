@@ -21,46 +21,37 @@
     </div>
     <div class="row">
       <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="team boxed-grey">
-            <div class="inner">
-
-
-        <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
-
-<iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
-
-
-            </div>
+        <div class="team boxed-grey">
+          <div class="inner">
+            <h3><%= link_to @pitches.first.title, pitch_path(@pitches.first) %></h3>
+            <iframe width="230" height="129" src=<%= @pitches.first.url %> frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
       </div>
       <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="team boxed-grey">
-            <div class="inner">
-              <h3><%= link_to @pitches.second.title, pitch_path(@pitches.second) %></h3>
-              <iframe width="230" height="129" src="//www.youtube.com/embed/gHd18VTg7_4?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+        <div class="team boxed-grey">
+          <div class="inner">
+            <h3><%= link_to @pitches.second.title, pitch_path(@pitches.second) %></h3>
+            <iframe width="230" height="129" src=<%= @pitches.second.url %> frameborder="0" allowfullscreen></iframe>
 
-            </div>
           </div>
+        </div>
       </div>
       <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="team boxed-grey">
-            <div class="inner">
-              <h3><%= link_to @pitches.third.title, pitch_path(@pitches.third) %></h3>
-              <iframe width="230" height="129" src="//www.youtube.com/embed/JhuccK8eCfo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-            </div>
+        <div class="team boxed-grey">
+          <div class="inner">
+            <h3><%= link_to @pitches.third.title, pitch_path(@pitches.third) %></h3>
+            <iframe width="230" height="129" src=<%= @pitches.third.url %> frameborder="0" allowfullscreen></iframe>
           </div>
+        </div>
       </div>
-
       <div class="col-xs-6 col-sm-3 col-md-3">
-          <div class="team boxed-grey">
-            <div class="inner">
-              <h3><%= link_to "+New Pitch", new_pitch_path %></h3>
-              <div class="avatar"><img src="img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
-            </div>
+        <div class="team boxed-grey">
+          <div class="inner">
+            <h3><%= link_to "+New Pitch", new_pitch_path %></h3>
           </div>
+        </div>
       </div>
-
-
     </div>
   </div>
 </section>

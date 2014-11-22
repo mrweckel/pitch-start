@@ -32,10 +32,10 @@ group :development, :test do
 	gem "capybara", "~> 2.4.3"
 	gem 'shoulda-matchers', require: false
 	gem 'simplecov', :require => false, :group => :test
+	gem "faker", "~> 1.4.3"
 end
 
 group :test do
-	gem "faker", "~> 1.4.3"
 	gem "database_cleaner", "~> 1.3.0"
 	gem "launchy", "~> 2.4.2"
 	gem "selenium-webdriver", "~> 2.43.0"
