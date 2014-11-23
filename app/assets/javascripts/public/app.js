@@ -28,13 +28,15 @@ var helper = (function() {
       $('#authResult').html('Auth Result:<br/>');
       for (var field in authResult) {
         $('#authResult').append(' ' + field + ': ' + authResult[field] + '<br/>');
+        console.log("This is the auth result:");
+        console.log(authResult);
       }
       if (authResult['access_token']) {
         // The user is signed in
         this.authResult = authResult;
         helper.connectServer();
         // After we load the Google+ API, render the profile data from Google+.
-        gapi.client.load('plus','v1',this.renderProfile);
+        gapi.client.load('youtube','v3',this.renderProfile);
       } else if (authResult['error']) {
         // There was an error, which means the user is not signed in.
         // As an example, you can troubleshoot by writing to the console:
