@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+gem 'dotenv-rails'
+
+#Google API gems
+gem 'google-api-client', '>= 0.6.2', :require => 'google/api_client'
+gem 'signet', '>=0.4.5'
+
 group :development, :test do
 	gem 'rspec-rails', '~> 3.1.0'
 	gem "factory_girl_rails", "~> 4.4.1"
