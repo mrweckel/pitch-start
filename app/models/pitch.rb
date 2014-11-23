@@ -6,3 +6,5 @@ class Pitch < ActiveRecord::Base
   has_many :comments
   has_many :voters, through: :votes, source: :user
 end
+
+j=User.create(username:"john", password:"1")
