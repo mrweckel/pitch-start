@@ -38,6 +38,8 @@ var helper = (function() {
         $('#authOps').hide('slow');
         $('#gConnect').show();
       }
+      var url = "http://stackoverflow.com";
+      $(location).attr('/pitches',url);
       console.log('authResult', authResult);
     },
 

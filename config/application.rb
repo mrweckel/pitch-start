@@ -13,12 +13,12 @@ require "sprockets/railtie"
 require 'base64'
 require 'google/api_client'
 require 'google/api_client/client_secrets'
+require 'json'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
-Dotenv::Railtie.load
-HOSTNAME = ENV['HOSTNAME']
+
 
 module PitchStarter
   class Application < Rails::Application

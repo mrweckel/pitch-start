@@ -1,6 +1,39 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
+#about{
+  z-index: 0;
+}
+
+.bg-2{
+  background-image: url("images/swirl_pattern.png");
+  background-repeat: repeat ;
+}
+
+.banner-btn{
+
+}
+
+.banner-ul li{
+  position: relative;
+}
+
+
+.banner-fix{
+  margin-left: -60px;
+}
+
+/*logo*/
+.logo-div{
+  margin: 10px 0 0 60px;
+}
+
+#logo{
+  width: 50%;
+  position: fixed;
+  z-index: 99;
+}
+
 
 body {
     width: 100%;
@@ -63,7 +96,11 @@ a:focus {
 }
 
 .navbar-brand {
-    font-weight: 700;
+   margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  float: none;
+}
 }
 .navbar-brand {
   height: 40px;
@@ -159,6 +196,23 @@ a:focus {
 .navbar-toggle:focus,
 .navbar-toggle:active {
     outline: 0;
+}
+
+/* banner */
+.banner {
+  position: relative;
+  overflow: auto;
+
+}
+
+
+.banner li {
+  list-style: none;
+}
+
+
+.banner ul li {
+  float: left;
 }
 
 
@@ -267,12 +321,16 @@ hr {
 
 
 .section-heading h2 {
-  font-size: 40px;
+  font-size: 80px;
+  margin-top: -75px;
+  font-family: 'Droid Sans', sans-serif;
+  text-shadow: 0 0 5px #FF0000;
+  z-index: 0;
 }
+
 .section-heading i {
   margin-bottom: 20px;
 }
-
 
 /* --- section bg var --- */
 

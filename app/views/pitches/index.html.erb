@@ -1,20 +1,24 @@
-<%= render "/intro" %>
+<div>
+<%= render "/banner" %>
+</div>
 
-<%= render "/top_pitches" %>
-<h3>Most recent 3 pitches</h3>
-<% @pitches.each do |pitch| %>
-  <%= link_to pitch.title, pitch %>
-  <%= link_to 'Edit', [:edit, pitch] %>
-  <%= link_to 'Delete', pitch, method: :delete%>
-  <%= link_to 'Comments', comments_path(pitch_id: pitch.id)%>
-  <%= link_to 'Vote', votes_path(pitch_id: pitch.id), method: :post %>
-  Vote Count: <%= pitch.votes.count %>
+<div class="bg-2"
+  <%= render "/top_pitches" %>
+</div>
 
-  <%= pitch.url%>
-  <br>
-<% end %>
+<div class="bg-3">
+  <h3>Most recent 3 pitches</h3>
+  <% @pitches.each do |pitch| %>
+    <%= link_to pitch.title, pitch %>
+    <%= link_to 'Edit', [:edit, pitch] %>
+    <%= link_to 'Delete', pitch, method: :delete%>
+    <%= link_to 'Comments', comments_path(pitch_id: pitch.id)%>
+    <%= link_to 'Vote', votes_path(pitch_id: pitch.id), method: :post %>
+    Vote Count: <%= pitch.votes.count %>
 
-<%= link_to "Sign in with Google", "/users/oauth" %>
+    <%= pitch.url%>
+    <br>
+  <% end %>
+</div>
 
-<%= render '/google_signin' %>
 
