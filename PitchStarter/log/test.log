@@ -1,0 +1,405 @@
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "comments" ("id" serial primary key, "content" text, "user_id" integer, "pitch_id" integer, "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (3.6ms)[0m  [1mCREATE TABLE "pitches" ("id" serial primary key, "title" character varying(255), "url" character varying(255), "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (3.0ms)[0m  CREATE TABLE "users" ("id" serial primary key, "username" character varying(255), "password_digest" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "votes" ("id" serial primary key, "pitch_id" integer, "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) 
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141120221629')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141120221607')
+  [1m[36m (0.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20141120221616')[0m
+  [1m[35m (0.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20141120221625')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.5ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'aut' LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://vonhudson.biz/abby.marvin' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:13.524647"], ["title", "aut"], ["updated_at", "2014-11-21 22:31:13.524647"], ["url", "http://vonhudson.biz/abby.marvin"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'qui' LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://effertzoberbrunner.net/chester_oconner' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:13.529099"], ["title", "qui"], ["updated_at", "2014-11-21 22:31:13.529099"], ["url", "http://effertzoberbrunner.net/chester_oconner"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'cumque' LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://schmitt.name/elbert' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:13.530990"], ["title", "cumque"], ["updated_at", "2014-11-21 22:31:13.530990"], ["url", "http://schmitt.name/elbert"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#index as HTML
+  Rendered pitches/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+  [1m[35mPitch Load (0.5ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 3
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by PitchesController#index as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.0ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+Processing by PitchesController#create as HTML
+  Parameters: {"pitch"=>{"title"=>"alias", "url"=>"http://wisozk.net/jazmin_koelpin"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'alias' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://wisozk.net/jazmin_koelpin' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:13.552113"], ["title", "alias"], ["updated_at", "2014-11-21 22:31:13.552113"], ["url", "http://wisozk.net/jazmin_koelpin"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches/4
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'et' LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://kuphal.org/austin.hane' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:13.557732"], ["title", "et"], ["updated_at", "2014-11-21 22:31:13.557732"], ["url", "http://kuphal.org/austin.hane"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"eos", "url"=>"http://gutmann.name/jammie"}, "id"=>"5"}
+  [1m[36mPitch Load (0.2ms)[0m  [1mSELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'eos' AND "pitches"."id" != 5) LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://gutmann.name/jammie' AND "pitches"."id" != 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 5[0m  [["title", "eos"], ["updated_at", "2014-11-21 22:31:13.562932"], ["url", "http://gutmann.name/jammie"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches
+Completed 302 Found in 4ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'ad' LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://hammes.org/wallace_marquardt' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:13.569172"], ["title", "ad"], ["updated_at", "2014-11-21 22:31:13.569172"], ["url", "http://hammes.org/wallace_marquardt"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"title", "url"=>"www.youtube.com"}, "id"=>"6"}
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'title' AND "pitches"."id" != 6) LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'www.youtube.com' AND "pitches"."id" != 6) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 6  [["title", "title"], ["updated_at", "2014-11-21 22:31:13.574167"], ["url", "www.youtube.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 4ms (ActiveRecord: 0.9ms)
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'repudiandae' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://kiehnschaefer.net/johnson_mcglynn' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:13.579845"], ["title", "repudiandae"], ["updated_at", "2014-11-21 22:31:13.579845"], ["url", "http://kiehnschaefer.net/johnson_mcglynn"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"non", "url"=>"http://olsonadams.info/toby"}, "id"=>"7"}
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 7]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.3ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'non' AND "pitches"."id" != 7) LIMIT 1
+  [1m[36mPitch Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://olsonadams.info/toby' AND "pitches"."id" != 7) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 7  [["title", "non"], ["updated_at", "2014-11-21 22:31:13.586205"], ["url", "http://olsonadams.info/toby"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 5ms (ActiveRecord: 1.2ms)
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pitches"
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'newest title' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'www.espn.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:13.594238"], ["title", "newest title"], ["updated_at", "2014-11-21 22:31:13.594238"], ["url", "www.espn.com"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:13.639468"], ["password_digest", "$2a$04$0qY28zCx3DXspaGWkGJJGe7WrmbLaFYNL.4y3UIhwa5gImDOsh9L2"], ["updated_at", "2014-11-21 22:31:13.639468"], ["username", "a"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.6ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'accusantium' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://sipechneider.net/roie_keler' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:46.315095"], ["title", "accusantium"], ["updated_at", "2014-11-21 22:31:46.315095"], ["url", "http://sipechneider.net/roie_keler"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'soluta' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://yundt.name/nella' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:46.319610"], ["title", "soluta"], ["updated_at", "2014-11-21 22:31:46.319610"], ["url", "http://yundt.name/nella"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'id' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://skilestreutel.org/ben.fisher' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:46.321668"], ["title", "id"], ["updated_at", "2014-11-21 22:31:46.321668"], ["url", "http://skilestreutel.org/ben.fisher"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#index as HTML
+  Rendered pitches/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 43ms (Views: 42.9ms | ActiveRecord: 0.0ms)
+  [1m[35mPitch Load (0.5ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 3
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by PitchesController#index as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+Processing by PitchesController#create as HTML
+  Parameters: {"pitch"=>{"title"=>"at", "url"=>"http://smitham.biz/luigi_nikolaus"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'at' LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://smitham.biz/luigi_nikolaus' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:46.380256"], ["title", "at"], ["updated_at", "2014-11-21 22:31:46.380256"], ["url", "http://smitham.biz/luigi_nikolaus"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches/12
+Completed 302 Found in 3ms (ActiveRecord: 0.6ms)
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'nostrum' LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://hyatt.net/lola_turner' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:46.385024"], ["title", "nostrum"], ["updated_at", "2014-11-21 22:31:46.385024"], ["url", "http://hyatt.net/lola_turner"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"eum", "url"=>"http://nicolas.info/tremaine_jenkins"}, "id"=>"13"}
+  [1m[36mPitch Load (0.2ms)[0m  [1mSELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1[0m  [["id", 13]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'eum' AND "pitches"."id" != 13) LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://nicolas.info/tremaine_jenkins' AND "pitches"."id" != 13) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 13[0m  [["title", "eum"], ["updated_at", "2014-11-21 22:31:46.390329"], ["url", "http://nicolas.info/tremaine_jenkins"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches
+Completed 302 Found in 5ms (ActiveRecord: 1.1ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'enim' LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://anderson.org/dennis.ferry' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:46.396082"], ["title", "enim"], ["updated_at", "2014-11-21 22:31:46.396082"], ["url", "http://anderson.org/dennis.ferry"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"title", "url"=>"www.youtube.com"}, "id"=>"14"}
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'title' AND "pitches"."id" != 14) LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'www.youtube.com' AND "pitches"."id" != 14) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 14  [["title", "title"], ["updated_at", "2014-11-21 22:31:46.400465"], ["url", "www.youtube.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[35mPitch Load (0.1ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 14]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'iure' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://effertzrobel.name/beaulah' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:46.405142"], ["title", "iure"], ["updated_at", "2014-11-21 22:31:46.405142"], ["url", "http://effertzrobel.name/beaulah"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"repudiandae", "url"=>"http://stiedemannlueilwitz.org/esta"}, "id"=>"15"}
+  [1m[35mPitch Load (0.3ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 15]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'repudiandae' AND "pitches"."id" != 15) LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://stiedemannlueilwitz.org/esta' AND "pitches"."id" != 15) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 15  [["title", "repudiandae"], ["updated_at", "2014-11-21 22:31:46.410779"], ["url", "http://stiedemannlueilwitz.org/esta"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 4ms (ActiveRecord: 1.0ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SELECT COUNT(*) FROM "pitches"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'newest title' LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'www.espn.com' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:31:46.415430"], ["title", "newest title"], ["updated_at", "2014-11-21 22:31:46.415430"], ["url", "www.espn.com"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:31:46.455428"], ["password_digest", "$2a$04$OsCWQPYnl///YaudFu8IqenVQSNdwlCmyiGbGQUXwaUtZhzSNvCna"], ["updated_at", "2014-11-21 22:31:46.455428"], ["username", "a"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.6ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'qui' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://schimmel.net/ryder' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:41:13.952782"], ["title", "qui"], ["updated_at", "2014-11-21 22:41:13.952782"], ["url", "http://schimmel.net/ryder"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'id' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://tremblay.com/gabriel_fritsch' LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:41:13.957237"], ["title", "id"], ["updated_at", "2014-11-21 22:41:13.957237"], ["url", "http://tremblay.com/gabriel_fritsch"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'sit' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://kiehn.org/lionel_olson' LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:41:13.959272"], ["title", "sit"], ["updated_at", "2014-11-21 22:41:13.959272"], ["url", "http://kiehn.org/lionel_olson"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#index as HTML
+  Rendered pitches/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 53ms (Views: 52.5ms | ActiveRecord: 0.0ms)
+  [1m[35mPitch Load (0.5ms)[0m  SELECT  "pitches".* FROM "pitches"   ORDER BY "pitches"."created_at" DESC LIMIT 3
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+Processing by PitchesController#index as HTML
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+Processing by PitchesController#create as HTML
+  Parameters: {"pitch"=>{"title"=>"modi", "url"=>"http://leuschke.name/sandrine_hettinger"}}
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'modi' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://leuschke.name/sandrine_hettinger' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:41:14.026503"], ["title", "modi"], ["updated_at", "2014-11-21 22:41:14.026503"], ["url", "http://leuschke.name/sandrine_hettinger"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches/20
+Completed 302 Found in 3ms (ActiveRecord: 0.7ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'rerum' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://renner.org/neha.rice' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:41:14.031662"], ["title", "rerum"], ["updated_at", "2014-11-21 22:41:14.031662"], ["url", "http://renner.org/neha.rice"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"earum", "url"=>"http://ritchie.info/rylan"}, "id"=>"21"}
+  [1m[36mPitch Load (0.2ms)[0m  [1mSELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1[0m  [["id", 21]]
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'earum' AND "pitches"."id" != 21) LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://ritchie.info/rylan' AND "pitches"."id" != 21) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 21[0m  [["title", "earum"], ["updated_at", "2014-11-21 22:41:14.036942"], ["url", "http://ritchie.info/rylan"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/pitches
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'et' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://schmitt.net/herminia' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:41:14.042312"], ["title", "et"], ["updated_at", "2014-11-21 22:41:14.042312"], ["url", "http://schmitt.net/herminia"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"title", "url"=>"www.youtube.com"}, "id"=>"22"}
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'title' AND "pitches"."id" != 22) LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'www.youtube.com' AND "pitches"."id" != 22) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 22  [["title", "title"], ["updated_at", "2014-11-21 22:41:14.046857"], ["url", "www.youtube.com"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 3ms (ActiveRecord: 0.8ms)
+  [1m[35mPitch Load (0.1ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 22]]
+  [1m[36m (0.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'dolore' LIMIT 1
+  [1m[36mPitch Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'http://homenick.name/marjory.crona' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:41:14.051677"], ["title", "dolore"], ["updated_at", "2014-11-21 22:41:14.051677"], ["url", "http://homenick.name/marjory.crona"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Processing by PitchesController#update as HTML
+  Parameters: {"pitch"=>{"title"=>"est", "url"=>"http://effertz.net/winfield"}, "id"=>"23"}
+  [1m[35mPitch Load (0.2ms)[0m  SELECT  "pitches".* FROM "pitches"  WHERE "pitches"."id" = $1 LIMIT 1  [["id", 23]]
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE ("pitches"."title" = 'est' AND "pitches"."id" != 23) LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE ("pitches"."url" = 'http://effertz.net/winfield' AND "pitches"."id" != 23) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "pitches" SET "title" = $1, "updated_at" = $2, "url" = $3 WHERE "pitches"."id" = 23  [["title", "est"], ["updated_at", "2014-11-21 22:41:14.057369"], ["url", "http://effertz.net/winfield"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/pitches
+Completed 302 Found in 4ms (ActiveRecord: 0.8ms)
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "pitches"
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" = 'newest title' LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" = 'www.espn.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "pitches" ("created_at", "title", "updated_at", "url") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2014-11-21 22:41:14.062448"], ["title", "newest title"], ["updated_at", "2014-11-21 22:41:14.062448"], ["url", "www.espn.com"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.1ms)[0m  [1mSELECT COUNT(*) FROM "pitches"[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.0ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.1ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35mPitch Exists (0.2ms)[0m  SELECT  1 AS one FROM "pitches"  WHERE "pitches"."title" IS NULL LIMIT 1
+  [1m[36mPitch Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "pitches"  WHERE "pitches"."url" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" IS NULL LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users"   ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("created_at", "password_digest", "updated_at", "username") VALUES ($1, $2, $3, $4) RETURNING "id"  [["created_at", "2014-11-21 22:41:14.101817"], ["password_digest", "$2a$04$8IESlEQR3dDt3iiiXAYnB.H0CusBXLG7Daia66qRyqitSychSaMza"], ["updated_at", "2014-11-21 22:41:14.101817"], ["username", "a"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.1ms)[0m  SELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1
+  [1m[36mUser Exists (0.1ms)[0m  [1mSELECT  1 AS one FROM "users"  WHERE "users"."username" = 'a' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  ROLLBACK

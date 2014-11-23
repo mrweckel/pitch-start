@@ -1,9 +1,9 @@
 class CreatePitches < ActiveRecord::Migration
   def change
     create_table :pitches do |t|
-      t.string :title
-      t.string :url
-      t.references :user
+      t.string :title, null: false
+      t.string :url, null: false
+      t.references :user, null: false
 
       t.timestamps
     end

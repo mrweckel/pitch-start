@@ -1,13 +1,22 @@
 Rails.application.routes.draw do
   resources :users, :pitches, :comments
+  resources :videos, only: [:new, :index]
+  root to: 'pitches#index'
 
   post 'votes' => 'votes#create'
 
-  resources :users do
-    post "oauth"
-  end
 
-  root to: 'pitches#index'
+  get "/log-in" => "sessions#new", as: :log_in
+  post "/log-in" => "sessions#create"
+  get "/log-out" => "sessions#destroy", as: :log_out
+
+  get '/auth/:provider/callback', to: 'users#create'
+  get '/auth/failure', to: redirect('/')
+
+  post '/videos/get_upload_token', to: 'videos#get_upload_token', as: :get_upload_token
+  get '/videos/get_video_uid', to: 'videos#get_video_uid', as: :get_video_uid
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

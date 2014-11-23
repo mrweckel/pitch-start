@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def create
     @pitch = Pitch.find(comment_params[:pitch_id])
-    @comment = @pitch.comments.new(comment_params)
+    @comment = @pitch.comments.new(comment_params, user_id: current_user.id)
     if @comment.save
       redirect_to pitch_path(@pitch)
     else
