@@ -17,17 +17,17 @@ ActiveRecord::Schema.define(version: 20141120221629) do
   enable_extension "plpgsql"
 
   create_table "comments", force: true do |t|
-    t.text     "content"
-    t.integer  "user_id"
-    t.integer  "pitch_id"
+    t.text     "content",    null: false
+    t.integer  "user_id",    null: false
+    t.integer  "pitch_id",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "pitches", force: true do |t|
-    t.string   "title"
-    t.string   "url"
-    t.integer  "user_id"
+    t.string   "title",      null: false
+    t.string   "url",        null: false
+    t.integer  "user_id",    null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
