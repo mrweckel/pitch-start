@@ -13,7 +13,7 @@ class PitchesController < ApplicationController
   end
 
   def create
-    @pitch = Pitch.new(pitch_params)
+    @pitch = Pitch.new(pitch_params, user_id: current_user.id)
     if @pitch.save
       redirect_to pitch_path(@pitch)
     else

@@ -1,0 +1,11 @@
+<% @pitches.each do |pitch| %>
+  <%= link_to pitch.title, pitch %>
+  <%= link_to 'Edit', [:edit, pitch] %>
+  <%= link_to 'Delete', pitch_path(pitch.id), method: :delete%>
+  <%= link_to 'Comments', comments_path(pitch_id: pitch.id)%>
+  <%= link_to 'Vote', votes_path(pitch_id: pitch.id), method: :post %>
+  Vote Count: <%= pitch.votes.count %>
+
+  <%= pitch.url%>
+  <br>
+<% end %>

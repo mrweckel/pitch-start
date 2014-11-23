@@ -1,0 +1,11 @@
+<div class="user_auth">
+      <ul>
+        <li> <%= link_to "Login", log_in_path  %></li>
+        <li> <%= link_to "Sign/Up", new_user_path %></li>    
+
+        <% if session[:user_id] %>
+        	<li> <%= link_to "Logout", log_out_path  %></li>
+        	<li> <%= link_to "User Profile", user_path(session[:user_id])  %></li>
+        <% end%>
+      </ul>
+    </div>

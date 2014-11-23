@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
 <%= render "/banner" %>
 </div>
@@ -8,17 +9,6 @@
 
 <div class="bg-3">
   <h3>Most recent 3 pitches</h3>
-  <% @pitches.each do |pitch| %>
-    <%= link_to pitch.title, pitch %>
-    <%= link_to 'Edit', [:edit, pitch] %>
-    <%= link_to 'Delete', pitch, method: :delete%>
-    <%= link_to 'Comments', comments_path(pitch_id: pitch.id)%>
-    <%= link_to 'Vote', votes_path(pitch_id: pitch.id), method: :post %>
-    Vote Count: <%= pitch.votes.count %>
-
-    <%= pitch.url%>
-    <br>
-  <% end %>
+  <%= render "pitches/iterate_pitches" %>
 </div>
-
 
