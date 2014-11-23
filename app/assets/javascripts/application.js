@@ -31,4 +31,16 @@ $(document).ready(function() {
         }
       });
     });
-  });
+
+    $(function() {
+      $('.banner').unslider();
+    });
+
+    $('.banner').unslider({
+      speed: 500,
+      complete: function() {},
+      keys: true,
+      dots: true,
+      fluid: false
+    });
+});
