@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
 
-
 	def index
-   
+
   end
 
   def show
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
   	@user = User.new
   end
 
+
   def create
     @user = User.new(user_params)
 	    if @user.save
@@ -24,6 +24,20 @@ class UsersController < ApplicationController
 	      render :new
 	    end
   end
+
+# def create
+#     auth = request.env["omniauth.auth"]
+#     if user = User.find_by_provider_and_uid(auth["provider"], auth["uid"])
+#       session[:user_id] = user.id
+#       flash[:success] = ["You've successfully signed in!"]
+#       redirect_to user
+#     else
+#       user = User.create_with_omniauth(auth)
+#       session[:user_id] = user.id
+#       flash[:success] = ["You have successfully signed in! Welcome to the site."]
+#       redirect_to user
+#     end
+#   end
 
   def destroy
     @user = User.delete(current_user)
