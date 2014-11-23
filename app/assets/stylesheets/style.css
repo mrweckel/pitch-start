@@ -16,11 +16,16 @@
 
 .banner-ul li{
   position: relative;
+
 }
 
+.banner-size{
+
+}
 
 .banner-fix{
-  margin-left: -60px;
+
+
 }
 
 /*logo*/
@@ -143,7 +148,7 @@ a:focus {
   color: #fff;
 }
 
-.navbar-custom ul.nav ul.dropdown-menu {
+.navbar-custom ul.nav ul.dropdown-menu {Ï
     border-radius: 0;
 }
 
@@ -360,14 +365,11 @@ hr {
 ============================ */
 
 .intro {
-  background: url(images/bg2.jpg) no-repeat top center;
-  background-size: 100% 100%;
   position:relative;
-
 }
 
 #intro.intro {
-  padding:20% 0 0 0;
+
 }
 
 .intro .slogan {
