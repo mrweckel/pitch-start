@@ -43,4 +43,19 @@ $(document).ready(function() {
       dots: true,
       fluid: false
     });
+
+    $('body').scroll(function(){
+      $('#logo').fadeTo("slow" , 0.5,
+        function(){
+          // Animation complete.
+        });
+      });
+
 });
+
+
+// $( "#clickme" ).click(function() {
+//   $( "#book" ).fadeTo( "slow" , 0.5, function() {
+//     // Animation complete.
+//   });
+// });
