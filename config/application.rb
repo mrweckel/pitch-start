@@ -17,6 +17,8 @@ require 'google/api_client/client_secrets'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
+HOSTNAME = ENV['HOSTNAME']
 
 module PitchStarter
   class Application < Rails::Application
