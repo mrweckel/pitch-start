@@ -65,4 +65,3 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'debugger', group: [:development, :test]
 
 #fuzzysearch
-gem fuzzily
