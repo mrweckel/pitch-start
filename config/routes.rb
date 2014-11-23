@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   post 'votes' => 'votes#create'
 
+  resources :video, only: [:new, :index]
+
   resources :users do
     post "oauth"
   end
