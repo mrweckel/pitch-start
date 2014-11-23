@@ -27,6 +27,9 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'dotenv-rails'
+gem 'youtube_it'
+
+
 
 #Google API gems
 gem 'google-api-client', '>= 0.6.2', :require => 'google/api_client'
