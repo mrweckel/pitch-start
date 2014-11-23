@@ -26,7 +26,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-
+    @user = User.delete(current_user)
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   def edit
