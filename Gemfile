@@ -27,13 +27,16 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
 gem 'dotenv-rails'
-gem 'youtube_it'
-
+gem 'youtube_it', github: 'bodrovis/youtube_it'
+gem 'omniauth-google-oauth2'
 
 
 #Google API gems
 gem 'google-api-client', '>= 0.6.2', :require => 'google/api_client'
 gem 'signet', '>=0.4.5'
+
+#JSON
+gem 'json'
 
 group :development, :test do
 	gem 'rspec-rails', '~> 3.1.0'
