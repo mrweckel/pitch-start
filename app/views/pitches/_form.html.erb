@@ -1,9 +1,13 @@
 <%= form_for @pitch do |f| %>
-<%= f.label :title %>
-<%= f.text_field :title %>
-
-<%= f.label :url %>
-<%= f.text_field :url %>
-
+<div id="form-entries"
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+</div>
+<br>
+<div id="form-entries"
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+</div>
+<br>
 <%= f.submit %>
 <% end %>

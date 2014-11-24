@@ -1,6 +1,40 @@
 /* ==== Google font ==== */
 @import url('http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic|Montserrat:700|Merriweather:400italic');
 
+#pitch-form{
+  background: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+h3 a{
+  font-color: #000;
+}
+
+.iframe-yt{
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px #908C8C;
+}
+
+.bg-3{
+   background-image: url("images/footer_lodyas.png");
+  background-repeat: repeat ;
+}
+
+.inner h3{
+  margin-bottom: 10px;
+  margin-top: 0px;
+  font-family: 'Droid Sans', sans-serif;
+  font-color: ;
+  background-image: url("images/swirl_pattern.png");
+  background-repeat: repeat;
+  box-shadow: inset 2px 2px 5px #808080;
+  border: 1px solid rgb(158, 158, 158);
+}
+
+
 #about{
   z-index: 0;
 }
@@ -16,22 +50,27 @@
 
 .banner-ul li{
   position: relative;
+
 }
 
+.banner-size{
+
+}
 
 .banner-fix{
-  margin-left: -60px;
+
+
 }
 
 /*logo*/
 .logo-div{
-  margin: 10px 0 0 60px;
+  margin: 10px 0 -50px 60px;
 }
 
 #logo{
-  width: 50%;
-  position: fixed;
+  max-width: 50%;
   z-index: 99;
+  height: auto;
 }
 
 
@@ -143,7 +182,7 @@ a:focus {
   color: #fff;
 }
 
-.navbar-custom ul.nav ul.dropdown-menu {
+.navbar-custom ul.nav ul.dropdown-menu {Ï
     border-radius: 0;
 }
 
@@ -202,7 +241,10 @@ a:focus {
 .banner {
   position: relative;
   overflow: auto;
-
+  overflow: hidden;
+  height: 714px;
+  margin-left: -80px;
+  margin-top: -10px;
 }
 
 
@@ -360,14 +402,11 @@ hr {
 ============================ */
 
 .intro {
-  background: url(images/bg2.jpg) no-repeat top center;
-  background-size: 100% 100%;
   position:relative;
-
 }
 
 #intro.intro {
-  padding:20% 0 0 0;
+
 }
 
 .intro .slogan {
@@ -416,6 +455,10 @@ hr {
 .boxed-grey {
   background: #f9f9f9;
   padding: 20px;
+  border: 1px silver solid;
+  border-radius: 30px;
+  box-shadow: 2px 2px 5px #888888;
+  background-image: url("images/blu_stripes.png");
 }
 
 .team h5 {
