@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(username: "admin", password: "admin")
+
+
 user.pitches.create(title: "Pack It",          url: '//www.youtube.com/embed/J-2pX8hjExA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
 user.pitches.create(title: "Super Halal Bros", url: '//www.youtube.com/embed/iLlv-Ac2_ao?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
 user.pitches.create(title: "Poop Scoop",       url: '//www.youtube.com/embed/77ayY9UzQeI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
