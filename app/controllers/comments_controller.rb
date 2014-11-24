@@ -9,12 +9,19 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
+    @comments = @pitch.comments
+
   end
 
   def new
     @user = session[:user_id]
     @pitch = Pitch.find(params[:pitch_id])
     @comment = @pitch.comments.new
+
+    if request.xhr?
+      @comment.to_json
+    end
+
   end
 
   def create
