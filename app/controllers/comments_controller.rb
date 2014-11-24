@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js, :xml, :json
+  layout false
+
   def index
     @pitch = Pitch.find(params[:pitch_id])
     @comments = @pitch.comments

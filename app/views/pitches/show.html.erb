@@ -17,12 +17,16 @@
 <%= link_to 'Vote', pitch_vote_path(pitch_id: @pitch.id), method: :post, class: "btn btn-primary" %>
 <br>
 
+    <div id="create_comment">
       <%= link_to 'Create Comment', new_comment_path(pitch_id: @pitch.id) %>
+    </div>
+    <div id="show_comment_form"></div>
 <%= link_to 'All Comments', comments_path(pitch_id: @pitch.id) %>
 <%= link_to 'Edit', edit_pitch_path %>
 <%= link_to 'Delete', pitch_path, method: :delete %>
     </div>
   </div>
 </center>
+
 
 

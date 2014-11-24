@@ -51,6 +51,18 @@ $(document).ready(function() {
         });
       });
 
+    $('body').on('click', "#create_comment", function(e){
+      e.preventDefault(),
+      $link = $(e.target)
+      $.ajax({
+        url: $link.attr("href"),
+        type: $link.attr("method"),
+      })
+      .done(function(response) {
+        $('#show_comment_form').html(response)
+      });
+    })
+
 });
 
 
