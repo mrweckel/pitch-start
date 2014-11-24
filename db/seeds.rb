@@ -6,19 +6,22 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 user = User.create(username: "admin", password: "admin")
-user.pitches.create(title: Faker::App.name, url: "//www.youtube.com/embed/e2vfxXFqMUc?list=PL8mQO5-D3Q2w_BnYABnqXmq8lHWUTUomE")
-user.pitches.create(title: Faker::App.name, url: "//www.youtube.com/embed/kLrWgVPeCzI")
-user.pitches.create(title: Faker::App.name, url: "//www.youtube.com/embed/VfsFV7VGBzI")
-# p4 = Pitch.create(title: Faker::App.name, url: "/www.youtube.com/embed/e2vfxXFqMUc?list=PL8mQO5-D3Q2w_BnYABnqXmq8lHWUTUomE")
-# p5 = Pitch.create(title: Faker::App.name, url: "/www.youtube.com/embed/e2vfxXFqMUc?list=PL8mQO5-D3Q2w_BnYABnqXmq8lHWUTUomE")
+
+
+user.pitches.create(title: "Pack It",          url: '//www.youtube.com/embed/J-2pX8hjExA?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
+user.pitches.create(title: "Super Halal Bros", url: '//www.youtube.com/embed/iLlv-Ac2_ao?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
+user.pitches.create(title: "Poop Scoop",       url: '//www.youtube.com/embed/77ayY9UzQeI?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
+user.pitches.create(title: "One Headphone?",   url: '//www.youtube.com/embed/aEK5XTz3RcU?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
+user.pitches.create(title: "Deaf Grandma",     url: '//www.youtube.com/embed/c7laXMrtHXo?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
+user.pitches.create(title: "Cat Love",         url: '//www.youtube.com/embed/OdTywYM5dJc?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen')
 
 
 
 
 
-user.votes.create(pitch_id: 1) 
-user.votes.create(pitch_id: 2) 
-user.votes.create(pitch_id: 3) 
+user.votes.create(pitch_id: 1)
+user.votes.create(pitch_id: 2)
+user.votes.create(pitch_id: 3)
 
 # 3.times{p3.votes.create}
 # 4.times{p4.votes.create}
