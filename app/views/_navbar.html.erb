@@ -10,10 +10,16 @@
       <ul class="nav navbar-nav">
         <li class="active"><%= link_to "Home", root_path %></li>
         <li><%= link_to "new pitch", new_pitch_path %></li>
-        <li><%= link_to "all videoes", videos_path %></li>
         <li><%= link_to 'add video', new_video_path %></li>
-
+        <li> <%= link_to "Login", log_in_path  %></li>
+        <li> <%= link_to "Sign Up", new_user_path %></li>
+         <% if session[:user_id] %>
+          <li> <%= link_to "Logout", log_out_path  %></li>
+          <li> <%= link_to "User Profile", user_path(session[:user_id])  %></li>
+        <% end%>
       </ul>
     </div>
   </div>
 </nav>
+
+

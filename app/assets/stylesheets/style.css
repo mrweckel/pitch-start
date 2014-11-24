@@ -30,13 +30,13 @@
 
 /*logo*/
 .logo-div{
-  margin: 10px 0 0 60px;
+  margin: 10px 0 -50px 60px;
 }
 
 #logo{
-  width: 50%;
-  position: fixed;
+  max-width: 50%;
   z-index: 99;
+  height: auto;
 }
 
 
@@ -207,7 +207,10 @@ a:focus {
 .banner {
   position: relative;
   overflow: auto;
-
+  overflow: hidden;
+  height: 714px;
+  margin-left: -80px;
+  margin-top: -10px;
 }
 
 
@@ -418,6 +421,9 @@ hr {
 .boxed-grey {
   background: #f9f9f9;
   padding: 20px;
+  border: 1px silver solid;
+  border-radius: 30px;
+  box-shadow: 5px 10px 5px #888888;
 }
 
 .team h5 {
