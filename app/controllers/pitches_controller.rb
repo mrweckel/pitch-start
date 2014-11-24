@@ -6,14 +6,16 @@ class PitchesController < ApplicationController
   def show
     @pitch = Pitch.find(params[:id])
     @votes = @pitch.votes.count
+    @comments = @pitch.comments
   end
 
   def new
+    @user = session[:user_id]
     @pitch = Pitch.new
   end
 
   def create
-    @pitch = Pitch.new(pitch_params, user_id: current_user.id)
+    @pitch = Pitch.new(pitch_params)
     if @pitch.save
       redirect_to pitch_path(@pitch)
     else
@@ -37,10 +39,15 @@ class PitchesController < ApplicationController
     redirect_to pitches_path
   end
 
+  def vote
+    Vote.create(pitch_id: params[:pitch_id], user_id: current_user.id )
+    redirect_to pitch_path(params[:pitch_id])
+  end
+
   private
 
   def pitch_params
-    params.require(:pitch).permit([:title, :url])
+    params.require(:pitch).permit([:title, :url, :user_id])
   end
 
 end

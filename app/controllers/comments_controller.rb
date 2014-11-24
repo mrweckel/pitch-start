@@ -1,4 +1,7 @@
 class CommentsController < ApplicationController
+  respond_to :html, :js, :xml, :json
+  layout false
+
   def index
     @pitch = Pitch.find(params[:pitch_id])
     @comments = @pitch.comments
@@ -6,17 +9,24 @@ class CommentsController < ApplicationController
 
   def show
     @comment = Comment.find(params[:id])
+    @comments = @pitch.comments
+
   end
 
   def new
-
+    @user = session[:user_id]
     @pitch = Pitch.find(params[:pitch_id])
     @comment = @pitch.comments.new
+
+    if request.xhr?
+      @comment.to_json
+    end
+
   end
 
   def create
     @pitch = Pitch.find(comment_params[:pitch_id])
-    @comment = @pitch.comments.new(comment_params, user_id: current_user.id)
+    @comment = @pitch.comments.new(comment_params)
     if @comment.save
       redirect_to pitch_path(@pitch)
     else
@@ -43,7 +53,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit([:content, :pitch_id ])
+    params.require(:comment).permit([:content, :pitch_id, :user_id])
   end
 
 end
